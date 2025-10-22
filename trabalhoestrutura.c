@@ -31,35 +31,35 @@ int estaVazia(Fila *f) {
 // Enfileirar elemento
 void enfileirar(Fila *f, int valor) {
     if (estaCheia(f)) {
-        printf("⚠️  Fila cheia! Não é possível enfileirar.\n");
+        printf("Fila cheia! Não é possível enfileirar.\n");
         return;
     }
     f->itens[f->fim] = valor;
     f->fim = (f->fim + 1) % f->capacidade;
     f->tamanho++;
-    printf("✅ Elemento %d adicionado com sucesso!\n", valor);
+    printf("Elemento %d adicionado com sucesso!\n", valor);
 }
 
 // Desenfileirar elemento
 void desenfileirar(Fila *f) {
     if (estaVazia(f)) {
-        printf("⚠️  Fila vazia! Nada para desenfileirar.\n");
+        printf("Fila vazia! Nada para desenfileirar.\n");
         return;
     }
     int removido = f->itens[f->inicio];
     f->inicio = (f->inicio + 1) % f->capacidade;
     f->tamanho--;
-    printf("🗑️  Desenfileirado: %d\n", removido);
+    printf("Desenfileirado: %d\n", removido);
 }
 
 // Mostrar conteúdo da fila
 void mostraFila(Fila *f) {
     if (estaVazia(f)) {
-        printf("📭 Fila vazia!\n");
+        printf("Fila vazia!\n");
         return;
     }
 
-    printf("📦 Fila: ");
+    printf("Fila: ");
     for (int i = 0; i < f->tamanho; i++) {
         int index = (f->inicio + i) % f->capacidade;
         printf("%d ", f->itens[index]);
@@ -78,9 +78,9 @@ void encontrarElemento(Fila *f, int valor) {
     }
 
     if (contador == 0) {
-        printf("🔍 Elemento %d não encontrado na fila.\n", valor);
+        printf("Elemento %d não encontrado na fila.\n", valor);
     } else {
-        printf("🔍 O elemento %d aparece %d vez(es) na fila.\n", valor, contador);
+        printf("O elemento %d aparece %d vez(es) na fila.\n", valor, contador);
     }
 }
 
@@ -127,15 +127,15 @@ int main() {
                 encontrarElemento(&fila, valor);
                 break;
             case 0:
-                printf("👋 Encerrando o programa...\n");
+                printf("Encerrando o programa...\n");
                 break;
             default:
-                printf("❌ Opção inválida. Tente novamente.\n");
+                printf("Opção inválida. Tente novamente.\n");
         }
 
         // Exibe o número de elementos na fila
         if (opcao >= 1 && opcao <= 4) {
-            printf("📊 Total de elementos na fila: %d\n", fila.tamanho);
+            printf("Total de elementos na fila: %d\n", fila.tamanho);
         }
 
     } while (opcao != 0);
@@ -143,3 +143,4 @@ int main() {
     liberarFila(&fila);
     return 0;
 }
+
